@@ -83,7 +83,7 @@ class PredictionActivity : AppCompatActivity(),HistoryActivityContract.HistoryAc
     private fun setValue(){
         val result = intent.getStringExtra("result")
         val url = intent.getStringExtra("url")
-        binding.tvResult.text = result
+        binding.tvConfidence.text = result
         Picasso.get()
             .load(url)
             .placeholder(R.drawable.ic_baseline_account_circle_24)

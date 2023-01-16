@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-<item
-    android:id="@+id/search_view"
-    android:title="search view"
-    android:icon="@drawable/ic_baseline_camera_24"
-    app:showAsAction="always"
-    app:actionViewClass="androidx.appcompat.widget.SearchView"
-    />
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/nvHome"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/nvHistory"
+        android:icon="@drawable/ic_baseline_history_24"
+        android:title="Search" />
+
+    <item
+        android:id="@+id/nvCamera"
+        android:icon="@drawable/ic_baseline_camera_24"
+        android:title="Like" />
+    <item
+        android:id="@+id/nvArticle"
+        android:icon="@drawable/ic_baseline_camera_24"
+        android:title="Like" />
+
+    <item
+        android:id="@+id/nvAkun"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="Shop" />
+
 </menu>

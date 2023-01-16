@@ -18,19 +18,22 @@ class HistoryAdapter(var activity:Activity,var data:List<History>):RecyclerView.
     class Holder(view:View):RecyclerView.ViewHolder(view){
         val tvNama = view.findViewById<TextView>(R.id.tv_nama)
         val image_conf = view.findViewById<ImageView>(R.id.img_confiden)
+        val tvConfidence = view.findViewById<TextView>(R.id.tvConfidence)
         val layout = view.findViewById<View>(R.id.layout)
     }
     init {
         fillterData = data as ArrayList<History>
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        val view:View = LayoutInflater.from(parent.context).inflate(R.layout.list_item_history,parent,false)
+        val view:View = LayoutInflater.from(parent.context).inflate(R.layout.list_item,parent,false)
         return Holder(view)
     }
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val nama = fillterData[position].name
         val image = fillterData[position].image
+        val confident = fillterData[position].indicated
         holder.tvNama.text = nama
+        holder.tvConfidence.text = confident
         Picasso.get()
             .load(image)
             .placeholder(R.drawable.ic_baseline_account_circle_24)
@@ -38,7 +41,7 @@ class HistoryAdapter(var activity:Activity,var data:List<History>):RecyclerView.
             .into(holder.image_conf)
         holder.layout.setOnClickListener {
             val activiti = Intent(activity,DetailHistoryActivity::class.java)
-            val str = Gson().toJson(fillterData[position],History::class.java)
+            val str = Gson().toJson(data[position],History::class.java)
             activiti.putExtra("extra",str)
             activity.startActivity(activiti)
         }

@@ -4,24 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_shadow"
     tools:context=".ui.DetailHistoryActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <soup.neumorphism.NeumorphCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:neumorph_backgroundColor="@color/background"
+            app:neumorph_shadowColorDark="@color/dark_shadow"
+            app:neumorph_shadowColorLight="@color/light_shadow"
+            >
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabSize="mini"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/ef_ic_arrow_back"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"/>
+            <TextView
+                android:id="@+id/tvNama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="setiyawan"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="@dimen/_15sdp"
+                />
+        </soup.neumorphism.NeumorphCardView>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <androidx.cardview.widget.CardView
+            <soup.neumorphism.NeumorphCardView
                 android:id="@+id/card"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_250sdp"
-                android:layout_margin="@dimen/_13sdp"
-                app:cardElevation="@dimen/_10sdp"
-                app:cardCornerRadius="@dimen/_10sdp"
+                app:neumorph_shapeType="basin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:neumorph_backgroundColor="@color/background"
+                app:neumorph_shadowColorDark="@color/dark_shadow"
+                app:neumorph_shadowColorLight="@color/light_shadow"
+                app:neumorph_shadowElevation="@dimen/_5sdp"
+                app:neumorph_shapeAppearance="@style/neumorphismCard"
                 >
                 <ImageView
                     android:id="@+id/ivResult"
@@ -30,215 +64,355 @@
                     android:src="@drawable/ic_baseline_camera_24"
                     android:layout_gravity="center"
                     />
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/btnBack"
+            </soup.neumorphism.NeumorphCardView>
+
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/res"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card"
+                app:neumorph_backgroundColor="@color/background"
+                app:neumorph_shadowColorDark="@color/dark_shadow"
+                app:neumorph_shadowColorLight="@color/light_shadow"
+                app:neumorph_shadowElevation="@dimen/_5sdp"
+                app:neumorph_shapeType="basin"
+                app:neumorph_shapeAppearance="@style/neumorphismCard"
+                >
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:backgroundTint="@color/white"
-                    android:src="@drawable/ef_ic_arrow_back"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"/>
-            </androidx.cardview.widget.CardView>
-            <TextView
-                android:id="@+id/tvMessage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="33dp"
-                android:text="Unfortunately, You are"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card" />
-            <TextView
-                android:id="@+id/tvConfidence"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="99"
-                android:textSize="56sp"
-                app:layout_constraintEnd_toStartOf="@+id/tvPercent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvMessage" />
-            <TextView
-                android:id="@+id/tvPercent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="33dp"
-                android:text="%"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/tvConfidence"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tvConfidence"
-                app:layout_constraintTop_toTopOf="@+id/tvConfidence"
-                app:layout_constraintVertical_bias="0.0" />
-            <TextView
-                android:id="@+id/tvResult"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="RESULT"
-                android:textSize="36sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvConfidence" />
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    >
+                    <TextView
+                        android:id="@+id/tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="confidence"
+                        android:textColor="@color/primary_text"
+                        android:layout_gravity="center"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/poppins_medium"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/card"/>
+                    <TextView
+                        android:id="@+id/tvConfidence"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/secondary_text"
+                        android:text="RESULT"
+                        android:layout_gravity="center"
+                        android:textSize="36sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvMessage" />
+                </LinearLayout>
+
+            </soup.neumorphism.NeumorphCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/sheet"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_450sdp"
+        android:layout_height="@dimen/_550sdp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
         android:background="@drawable/rounded_bg"
+        android:elevation="@dimen/_5sdp"
         >
         <ImageView
-            android:layout_width="@dimen/_70sdp"
+            android:layout_width="@dimen/_30sdp"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_remove_24"
+            android:src="@drawable/ic_baseline_keyboard_arrow_up_24"
             android:scaleType="centerCrop"
             android:layout_gravity="center|top"
             />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="horizontal"
+            android:scrollbarSize="@dimen/_1sdp">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/tvNoHpPasien"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
             <TextView
                 android:id="@+id/tvLetLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20sdp"
-                android:text="Create History"
+                android:text="Details"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:visibility="visible"
+                android:fontFamily="@font/poppins_bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tvNamaPasien"
-                android:layout_width="match_parent"
+            <androidx.constraintlayout.helper.widget.Flow
+                android:id="@+id/flow1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:hint="Nama Pasien"
-                android:layout_marginTop="32dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginEnd="18dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:boxBackgroundColor="@color/white"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/teal_200"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:paddingTop="@dimen/_16sdp"
+                app:constraint_referenced_ids="card1,card2"
+                app:flow_horizontalGap="3dp"
+                app:flow_maxElementsWrap="2"
+                app:flow_verticalGap="@dimen/_35sdp"
+                app:flow_wrapMode="aligned"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvLetLogin"
+                app:layout_constraintTop_toBottomOf="@+id/tvLetLogin"
+                />
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/card1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:neumorph_shapeType="basin"
+                app:neumorph_backgroundColor="@color/background"
+                app:neumorph_shadowColorDark="@color/dark_shadow"
+                app:neumorph_shadowColorLight="@color/light_shadow"
+                app:neumorph_shadowElevation="@dimen/_5sdp"
+                app:neumorph_shapeAppearance="@style/neumorphismCard"
                 >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_15sdp"
+                    >
+                    <soup.neumorphism.NeumorphCardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:neumorph_shapeType="flat"
+                        app:neumorph_backgroundColor="@color/background"
+                        app:neumorph_shadowColorDark="@color/dark_shadow"
+                        app:neumorph_shadowColorLight="@color/light_shadow"
+                        app:neumorph_shadowElevation="@dimen/_2sdp"
+                        app:neumorph_shapeAppearance="@style/neumorphismCard"
+                        >
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_32sdp"
+                            android:layout_height="@dimen/_32sdp"
+                            android:src="@drawable/ic_outline_settings_accessibility_24"
+                            android:tint="@color/primary"
+                            />
+                    </soup.neumorphism.NeumorphCardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="Age"
+                        android:layout_gravity="center"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="@dimen/_10sdp"
+                        />
+                    <TextView
+                        android:id="@+id/tvUmurPasien"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="new card"
+                        android:layout_gravity="center"
+                        android:textColor="@color/secondary_text"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="@dimen/_10sdp"
+                        />
+                </LinearLayout>
+            </soup.neumorphism.NeumorphCardView>
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/card2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:neumorph_shapeType="basin"
+                app:neumorph_backgroundColor="@color/background"
+                app:neumorph_shadowColorDark="@color/dark_shadow"
+                app:neumorph_shadowColorLight="@color/light_shadow"
+                app:neumorph_shadowElevation="@dimen/_5sdp"
+                app:neumorph_shapeAppearance="@style/neumorphismCard"
+                tools:ignore="MissingConstraints">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_15sdp"
+                    >
+                    <soup.neumorphism.NeumorphCardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:neumorph_shapeType="flat"
+                        app:neumorph_backgroundColor="@color/background"
+                        app:neumorph_shadowColorDark="@color/dark_shadow"
+                        app:neumorph_shadowColorLight="@color/light_shadow"
+                        app:neumorph_shadowElevation="@dimen/_2sdp"
+                        app:neumorph_shapeAppearance="@style/neumorphismCard"
+                        >
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_32sdp"
+                            android:layout_height="@dimen/_32sdp"
+                            android:src="@drawable/ic_outline_contact_phone_24"
+                            android:tint="@color/primary"
+                            />
+                    </soup.neumorphism.NeumorphCardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="Contact"
+                        android:layout_gravity="center"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="@dimen/_10sdp"
+                        />
+                    <TextView
+                        android:id="@+id/tvNoHpPasien"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="new card"
+                        android:layout_gravity="center"
+                        android:textColor="@color/secondary_text"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="@dimen/_10sdp"
+                        />
+                </LinearLayout>
+            </soup.neumorphism.NeumorphCardView>
+            <androidx.constraintlayout.helper.widget.Flow
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:paddingTop="@dimen/_10sdp"
+                app:constraint_referenced_ids="card3,card4"
+                app:flow_horizontalGap="3dp"
+                app:flow_maxElementsWrap="1"
+                app:flow_verticalGap="@dimen/_20sdp"
+                app:flow_wrapMode="aligned"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/flow1"
+                />
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/card3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:neumorph_shapeType="flat"
+                app:neumorph_backgroundColor="@color/background"
+                app:neumorph_shadowColorDark="@color/dark_shadow"
+                app:neumorph_shadowColorLight="@color/light_shadow"
+                app:neumorph_shadowElevation="@dimen/_5sdp"
+                app:neumorph_shapeAppearance="@style/neumorphismCard"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_15sdp"
+                    >
+                    <soup.neumorphism.NeumorphCardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:neumorph_shapeType="basin"
+                        app:neumorph_backgroundColor="@color/background"
+                        app:neumorph_shadowColorDark="@color/dark_shadow"
+                        app:neumorph_shadowColorLight="@color/light_shadow"
+                        app:neumorph_shadowElevation="@dimen/_2sdp"
+                        app:neumorph_shapeAppearance="@style/neumorphismCard"
+                        >
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_32sdp"
+                            android:layout_height="@dimen/_32sdp"
+                            android:src="@drawable/ic_outline_my_location_24"
+                            android:tint="@color/primary"
+                            />
+                    </soup.neumorphism.NeumorphCardView>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etNamaPasien"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="false"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tvAlamatPasien"
-                android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_14sdp"
+                        android:text="address"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="@dimen/_10sdp"
+                        />
+                    <TextView
+                        android:id="@+id/tvAlamatPasien"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_14sdp"
+                        android:text="new card"
+                        android:textColor="@color/secondary_text"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="@dimen/_10sdp"
+                        />
+                </LinearLayout>
+            </soup.neumorphism.NeumorphCardView>
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/card4"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:hint="Alamat Pasien"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginStart="18dp"
-                android:layout_marginEnd="18dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:boxBackgroundColor="@color/white"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/teal_200"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvNamaPasien"
+                app:neumorph_shapeType="flat"
+                app:neumorph_backgroundColor="@color/background"
+                app:neumorph_shadowColorDark="@color/dark_shadow"
+                app:neumorph_shadowColorLight="@color/light_shadow"
+                app:neumorph_shadowElevation="@dimen/_5sdp"
+                app:neumorph_shapeAppearance="@style/neumorphismCard"
                 >
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etAlamatPasien"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tvUmurPasien"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:hint="Umur Pasien"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginStart="18dp"
-                android:layout_marginEnd="18dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:boxBackgroundColor="@color/white"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/teal_200"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvAlamatPasien"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etUmurPasien"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tvNoHpPasien"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:hint="No.Hp Pasien"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginStart="18dp"
-                android:layout_marginEnd="18dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:boxBackgroundColor="@color/white"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/teal_200"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvUmurPasien"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etNoHpPasien"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="phone"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:orientation="vertical"
+                    android:padding="@dimen/_15sdp"
+                    >
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_32sdp"
+                        android:layout_height="@dimen/_32sdp"
+                        android:src="@drawable/ic_right_24"
+                        android:tint="@color/primary"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_14sdp"
+                        android:text="Publish"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="@dimen/_10sdp"
+                        />
+                    <TextView
+                        android:id="@+id/tvPublish"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_14sdp"
+                        android:text="new card"
+                        android:textColor="@color/secondary_text"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="@dimen/_10sdp"
+                        />
+                </LinearLayout>
+            </soup.neumorphism.NeumorphCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <Button
-            android:id="@+id/btnHistory"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_gravity="center|bottom"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/custom_card"
-            android:text="Save"
-            />
+        </ScrollView>
     </FrameLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

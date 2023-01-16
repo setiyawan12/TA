@@ -5,109 +5,140 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbarSize="1dp"
+    android:background="@color/light_shadow"
     tools:context=".ui.LoginActivity">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottie"
-            android:layout_width="@dimen/_150sdp"
-            android:layout_height="@dimen/_150sdp"
-            app:lottie_fileName="splash.json"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_speed="1"
-            android:layout_marginTop="@dimen/_50sdp"
+        android:layout_height="match_parent"
+        >
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/card1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:neumorph_shapeType="basin"
+            app:neumorph_backgroundColor="@color/background"
+            app:neumorph_shadowColorDark="@color/dark_shadow"
+            app:neumorph_shadowColorLight="@color/light_shadow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.cardview.widget.CardView
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_20sdp"
+            >
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="@dimen/_180sdp"
+                android:layout_height="@dimen/_170sdp"
+                app:lottie_fileName="splash.json"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_speed="1"
+                />
+        </soup.neumorphism.NeumorphCardView>
+        <soup.neumorphism.NeumorphCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="10dp"
+            app:neumorph_shapeType="flat"
+            app:neumorph_backgroundColor="@color/background"
+            app:neumorph_shadowColorDark="@color/dark_shadow"
+            app:neumorph_shadowColorLight="@color/light_shadow"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/lottie">
-
+            app:layout_constraintTop_toBottomOf="@id/card1">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp">
-
-                <TextView
-                    android:id="@+id/tvLetLogin"
+                <soup.neumorphism.NeumorphCardView
+                    android:id="@+id/card"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:neumorph_shapeType="flat"
+                    app:neumorph_backgroundColor="@color/background"
+                    app:neumorph_shadowColorDark="@color/dark_shadow"
+                    app:neumorph_shadowColorLight="@color/light_shadow"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:text="Login"
-                    android:fontFamily="@font/poppins_bold"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/etEmail"
-                    android:layout_width="0dp"
-                    android:layout_height="45dp"
-                    android:autofillHints="username"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/custom_input"
-                    android:drawableStart="@drawable/ic_baseline_person_24"
-                    android:drawablePadding="12dp"
-                    android:ems="10"
-                    android:hint="userEmail"
-                    android:inputType="textEmailAddress"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="12dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvLetLogin" />
-
-                <EditText
-                    android:id="@+id/etPassword"
-                    android:layout_width="0dp"
-                    android:layout_height="45dp"
-                    android:autofillHints="password"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/custom_input"
-                    android:drawableStart="@drawable/ic_baseline_lock_24"
-                    android:drawablePadding="12dp"
-                    android:ems="10"
-                    android:hint="Password"
-                    android:inputType="textPassword"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="12dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etEmail" />
-
-                <ProgressBar
-                    android:id="@+id/loadingLogin"
-                    android:layout_width="wrap_content"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Login"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        />
+                </soup.neumorphism.NeumorphCardView>
+                <soup.neumorphism.NeumorphCardView
+                    android:id="@+id/cardEmail"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    app:neumorph_shapeType="basin"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/card"
+                    app:neumorph_backgroundColor="@color/background"
+                    app:neumorph_shadowColorDark="@color/dark_shadow"
+                    app:neumorph_shadowColorLight="@color/light_shadow"
+                    app:neumorph_shadowElevation="@dimen/_5sdp"
+                    app:neumorph_shapeAppearance="@style/neumorphismCard"
+                    >
+                    <EditText
+                        android:layout_margin="@dimen/_10sdp"
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:autofillHints="emailAddress"
+                        android:drawableStart="@drawable/ic_baseline_email_24"
+                        android:drawablePadding="15dp"
+                        android:ems="10"
+                        android:background="@color/float_transparent"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        />
+                </soup.neumorphism.NeumorphCardView>
 
+                <soup.neumorphism.NeumorphCardView
+                    android:id="@+id/cardPassword"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    app:neumorph_shapeType="basin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardEmail"
+                    app:neumorph_backgroundColor="@color/background"
+                    app:neumorph_shadowColorDark="@color/dark_shadow"
+                    app:neumorph_shadowColorLight="@color/light_shadow"
+                    app:neumorph_shadowElevation="@dimen/_5sdp"
+                    app:neumorph_shapeAppearance="@style/neumorphismCard"
+                    >
+                    <EditText
+                        android:layout_margin="@dimen/_10sdp"
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:autofillHints="password"
+                        android:drawableStart="@drawable/ic_baseline_lock_24"
+                        android:drawablePadding="15dp"
+                        android:ems="10"
+                        android:background="@color/float_transparent"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        />
+                </soup.neumorphism.NeumorphCardView>
                 <TextView
                     android:id="@+id/tvCreateAccount"
                     android:layout_width="wrap_content"
@@ -118,27 +149,38 @@
                     android:fontFamily="@font/poppins_bold"
                     android:textColor="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etPassword" />
-
-                <Button
+                    app:layout_constraintTop_toBottomOf="@id/cardPassword" />
+                <soup.neumorphism.NeumorphButton
                     android:id="@+id/btnLogin"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="@dimen/_50sdp"
+                    style="@style/Widget.Neumorph.Button"
+                    app:neumorph_backgroundColor="@color/background"
+                    app:neumorph_shadowColorDark="@color/dark_shadow"
+                    app:neumorph_shadowColorLight="@color/light_shadow"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
-                    android:background="@drawable/custom_card"
-                    android:text="login"
+                    android:text="Login"
                     android:fontFamily="@font/poppins_bold"
-                    android:textAllCaps="false"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCreateAccount" />
+                    app:layout_constraintTop_toBottomOf="@id/tvCreateAccount"
+                    />
+                <ProgressBar
+                    android:id="@+id/loadingLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.cardview.widget.CardView>
-
+        </soup.neumorphism.NeumorphCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

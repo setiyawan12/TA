@@ -18,7 +18,6 @@
         android:title="Article"
         android:icon="@drawable/ic_baseline_history_24"
         />
-
     <item
         android:id="@+id/nvAkun"
         android:title="Akun"

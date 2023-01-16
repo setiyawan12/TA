@@ -58,42 +58,6 @@ class HistoryFragment : Fragment(),HistoryActivityContract.GetHistoryView {
             }
         })
     }
-
-    private fun filterList(query:String?){
-        if (query != null){
-            val filteredList = ArrayList<History>()
-            for ( i in mlist){
-                if (i.name?.toLowerCase(Locale.ROOT)!!.contains(query)){
-                    filteredList.add(i)
-                }
-            }
-            if (filteredList.isEmpty()){
-                showToast("No Data Found")
-            }else{
-                adapterHistory.filter.filter(query)
-            }
-        }
-    }
-
-//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-//        super.onCreateOptionsMenu(menu, inflater)
-//        inflater.inflate(R.menu.menu, menu)
-//        val menuItem = menu.findItem(R.id.search_view)
-//        val searchView = menuItem.actionView as SearchView
-//        searchView.maxWidth = Int.MAX_VALUE
-//        searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-//                adapterHistory.filter.filter(query)
-//                return true
-//            }
-//
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                adapterHistory.filter.filter(newText)
-//                return true
-//            }
-//
-//        })
-//    }
     override fun showLoading() {
     }
 

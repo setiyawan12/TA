@@ -76,11 +76,9 @@ class CameraActivity : AppCompatActivity(),CameraActivityContract.View {
     override fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
-
     override fun successPredict(pindah: Intent) {
         startActivity(pindah)
     }
-
     override fun showLoading() {
         binding.loadingPredict.apply {
             isIndeterminate=true

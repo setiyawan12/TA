@@ -90,4 +90,8 @@ dependencies {
 
     //lottie
     implementation "com.airbnb.android:lottie:3.4.4"
+
+    implementation 'com.github.fornewid:neumorphism:0.3.2'
+
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 }
