@@ -65,56 +65,163 @@
                     android:layout_gravity="center"
                     />
             </soup.neumorphism.NeumorphCardView>
-            <soup.neumorphism.NeumorphCardView
-                android:id="@+id/res"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_100sdp"
+            <androidx.constraintlayout.helper.widget.Flow
+                android:id="@+id/flow1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:paddingTop="@dimen/_16sdp"
+                app:constraint_referenced_ids="res,persentase"
+                app:flow_horizontalGap="3dp"
+                app:flow_maxElementsWrap="2"
+                app:flow_verticalGap="@dimen/_35sdp"
+                app:flow_wrapMode="aligned"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card"
+                />
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/res"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:neumorph_shapeType="basin"
                 app:neumorph_backgroundColor="@color/background"
                 app:neumorph_shadowColorDark="@color/dark_shadow"
                 app:neumorph_shadowColorLight="@color/light_shadow"
                 app:neumorph_shadowElevation="@dimen/_5sdp"
-                app:neumorph_shapeType="basin"
                 app:neumorph_shapeAppearance="@style/neumorphismCard"
                 >
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_gravity="center"
+                    android:padding="@dimen/_15sdp"
                     >
-                    <TextView
-                        android:id="@+id/tv"
+                    <soup.neumorphism.NeumorphCardView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="confidence"
-                        android:textColor="@color/primary_text"
                         android:layout_gravity="center"
-                        android:textSize="20sp"
-                        android:fontFamily="@font/poppins_medium"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/card"/>
+                        app:neumorph_shapeType="flat"
+                        app:neumorph_backgroundColor="@color/background"
+                        app:neumorph_shadowColorDark="@color/dark_shadow"
+                        app:neumorph_shadowColorLight="@color/light_shadow"
+                        app:neumorph_shadowElevation="@dimen/_2sdp"
+                        app:neumorph_shapeAppearance="@style/neumorphismCard"
+                        >
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_32sdp"
+                            android:layout_height="@dimen/_32sdp"
+                            android:src="@drawable/ic_outline_settings_accessibility_24"
+                            android:tint="@color/primary"
+                            />
+                    </soup.neumorphism.NeumorphCardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="confidence"
+                        android:layout_gravity="center"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="@dimen/_10sdp"
+                        />
                     <TextView
                         android:id="@+id/tvConfidence"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/secondary_text"
-                        android:text="RESULT"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="Normal"
                         android:layout_gravity="center"
-                        android:textSize="36sp"
+                        android:textColor="@color/secondary_text"
                         android:textStyle="bold"
                         android:fontFamily="@font/poppins_bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvMessage" />
+                        android:textSize="@dimen/_18sdp"
+                        />
                 </LinearLayout>
-
             </soup.neumorphism.NeumorphCardView>
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/persentase"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:neumorph_shapeType="basin"
+                app:neumorph_backgroundColor="@color/background"
+                app:neumorph_shadowColorDark="@color/dark_shadow"
+                app:neumorph_shadowColorLight="@color/light_shadow"
+                app:neumorph_shadowElevation="@dimen/_5sdp"
+                app:neumorph_shapeAppearance="@style/neumorphismCard"
+                tools:ignore="MissingConstraints">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_15sdp"
+                    >
+                    <soup.neumorphism.NeumorphCardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:neumorph_shapeType="flat"
+                        app:neumorph_backgroundColor="@color/background"
+                        app:neumorph_shadowColorDark="@color/dark_shadow"
+                        app:neumorph_shadowColorLight="@color/light_shadow"
+                        app:neumorph_shadowElevation="@dimen/_2sdp"
+                        app:neumorph_shapeAppearance="@style/neumorphismCard"
+                        >
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_32sdp"
+                            android:layout_height="@dimen/_32sdp"
+                            android:src="@drawable/ic_baseline_waterfall_chart_24"
+                            android:tint="@color/primary"
+                            />
+                    </soup.neumorphism.NeumorphCardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="Presentase"
+                        android:layout_gravity="center"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="@dimen/_10sdp"
+                        />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+                            android:id="@+id/tvPercent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="100"
+                            android:layout_gravity="center"
+                            android:textColor="@color/secondary_text"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/poppins_bold"
+                            android:textSize="@dimen/_18sdp"
+                            />
+                        <TextView
+                            android:id="@+id/percent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="%"
+                            android:layout_gravity="center"
+                            android:textColor="@color/secondary_text"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/poppins_bold"
+                            android:textSize="@dimen/_10sdp"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </soup.neumorphism.NeumorphCardView>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 

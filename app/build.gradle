@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'yayang.setiyawan.pneumonia'
+    namespace 'com.zahro.pneumonia'
     compileSdk 32
 
     defaultConfig {
-        applicationId "yayang.setiyawan.pneumonia"
+        applicationId "com.zahro.pneumonia"
         minSdk 21
         targetSdk 32
         versionCode 1
@@ -87,7 +87,6 @@ dependencies {
     implementation 'com.github.esafirm:android-image-picker:3.0.0-beta1'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.github.f0ris.sweetalert:library:1.5.6'
-
     //lottie
     implementation "com.airbnb.android:lottie:3.4.4"
 
