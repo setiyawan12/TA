@@ -1,14 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_shadow"
-    tools:context=".ui.PredictionActivity"
-    tools:ignore="MissingClass">
+    tools:context=".ui.TestingActivity">
+    <soup.neumorphism.NeumorphCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:neumorph_backgroundColor="@color/background"
+        app:neumorph_shadowColorDark="@color/dark_shadow"
+        app:neumorph_shadowColorLight="@color/light_shadow"
+        >
+        <soup.neumorphism.NeumorphFloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:neumorph_shadowElevation="@dimen/_1sdp"
+            style="@style/Widget.Neumorph.FloatingActionButton"
+            app:neumorph_backgroundColor="@color/dark_shadow"
+            app:neumorph_shadowColorDark="@color/dark_shadow"
+            app:neumorph_shadowColorLight="@color/light_shadow"
+            android:src="@drawable/ef_ic_arrow_back"
+            />
+        <TextView
+            android:id="@+id/tvNama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="prediction"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="@dimen/_15sdp"
+            />
+    </soup.neumorphism.NeumorphCardView>
 
-</RelativeLayout>
+    <soup.neumorphism.NeumorphCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_250sdp"
+        app:neumorph_shapeType="basin"
+        android:layout_marginTop="@dimen/_90sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:neumorph_backgroundColor="@color/background"
+        app:neumorph_shadowColorDark="@color/dark_shadow"
+        app:neumorph_shadowColorLight="@color/light_shadow"
+        app:neumorph_shadowElevation="@dimen/_5sdp"
+        app:neumorph_shapeAppearance="@style/neumorphismCard"
+        >
+        <ImageView
+            android:id="@+id/ImageDetail"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_250sdp"
+            android:src="@drawable/ic_baseline_camera_24"
+            android:layout_gravity="center"
+            />
+    </soup.neumorphism.NeumorphCardView>
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/BtnChooseImage"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="30dp"
+        app:neumorph_backgroundColor="@color/background"
+        app:neumorph_shadowColorDark="@color/dark_shadow"
+        app:neumorph_shadowColorLight="@color/light_shadow"
+        app:layout_constraintEnd_toStartOf="@id/BtnCamera"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card"
+        android:text="chossed image"
+        android:fontFamily="@font/poppins_bold"
+        style="@style/Widget.Neumorph.Button"
+        />
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/BtnCamera"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:layout_marginStart="16dp"
+        app:neumorph_backgroundColor="@color/background"
+        app:neumorph_shadowColorDark="@color/dark_shadow"
+        app:neumorph_shadowColorLight="@color/light_shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/BtnChooseImage"
+        app:layout_constraintTop_toBottomOf="@id/card"
+        android:text="Camera"
+        android:fontFamily="@font/poppins_bold"
+        style="@style/Widget.Neumorph.Button"
+        />
+    <ProgressBar
+        android:id="@+id/loadingPredict"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/BtnUpload"
+        style="@style/Widget.Neumorph.Button"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Upload"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card"
+        app:layout_constraintVertical_bias="0.39"
+        app:neumorph_backgroundColor="@color/background"
+        app:neumorph_shadowColorDark="@color/dark_shadow"
+        app:neumorph_shadowColorLight="@color/light_shadow" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -26,7 +26,7 @@ class APIclient {
 }
 class Constants{
     companion object{
-        const val API_ENDPOINT = "https://4ce7-2001-448a-400a-2376-64be-aee3-e148-6e90.ngrok.io/"
+        const val API_ENDPOINT = "https://ee9c-2001-448a-400a-2376-64be-aee3-e148-6e90.ngrok.io/"
         fun getToken(context: Context): String {
             val pref = context.getSharedPreferences("TOKEN", Context.MODE_PRIVATE)
             val token = pref?.getString("TOKEN", "UNDEFINED")
