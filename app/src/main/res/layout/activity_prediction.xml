@@ -138,7 +138,7 @@
                         android:textColor="@color/secondary_text"
                         android:textStyle="bold"
                         android:fontFamily="@font/poppins_bold"
-                        android:textSize="@dimen/_18sdp"
+                        android:textSize="@dimen/_16sdp"
                         />
                 </LinearLayout>
             </soup.neumorphism.NeumorphCardView>

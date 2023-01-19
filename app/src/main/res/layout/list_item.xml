@@ -16,7 +16,7 @@
         app:neumorph_backgroundColor="@color/background"
         app:neumorph_shadowColorDark="@color/dark_shadow"
         app:neumorph_shadowColorLight="@color/light_shadow"
-        app:neumorph_shadowElevation="@dimen/_5sdp"
+        app:neumorph_shadowElevation="@dimen/_3sdp"
         app:neumorph_shapeAppearance="@style/neumorphismCard">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
