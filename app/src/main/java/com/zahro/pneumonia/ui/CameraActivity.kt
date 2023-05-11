@@ -1,6 +1,7 @@
 package com.zahro.pneumonia.ui
 
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.ContentResolver
 import android.content.Intent
 import android.net.Uri
@@ -16,6 +17,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog
 import com.esafirm.imagepicker.features.ImagePickerConfig
 import com.esafirm.imagepicker.features.ImagePickerMode
 import com.esafirm.imagepicker.features.registerImagePicker
+import com.theartofdev.edmodo.cropper.CropImage
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -37,7 +39,10 @@ class CameraActivity : AppCompatActivity(),CameraActivityContract.View,UploadReq
     private lateinit var binding: ActivityCameraBinding
     private lateinit var currentPhotoPath: String
     private val REQUEST_TAKE_PHOTO = 1
+    private var CROP_PIC = 2
     private lateinit var photoFile:File
+    private lateinit var cropIntent:Intent
+    lateinit var uri :Uri
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         presenter = CameraActivityPresenter(this)
@@ -55,6 +60,7 @@ class CameraActivity : AppCompatActivity(),CameraActivityContract.View,UploadReq
     private fun takePicture(){
         binding.BtnCamera.setOnClickListener {
             dispatchTakePictureIntent()
+//            CropImage.activity().start(this)
         }
     }
     private fun btnUploadListener(){
@@ -69,23 +75,32 @@ class CameraActivity : AppCompatActivity(),CameraActivityContract.View,UploadReq
         }
     }
     private fun chooseImage() {
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
-        startActivityForResult(intent,100)
+//        val intent = Intent(Intent.ACTION_PICK)
+//        intent.type = "image/*"
+        CropImage.activity().start(this)
+//        startActivityForResult(intent,100)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode==100){
-            selectedImageUri = data?.data
-            binding.ImageDetail.setImageURI(selectedImageUri)
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
+            val result :CropImage.ActivityResult = CropImage.getActivityResult(data)
+            if (resultCode == RESULT_OK){
+                selectedImageUri = result.uri
+                binding.ImageDetail.setImageURI(selectedImageUri)
+            }
         }
+//        if (resultCode == Activity.RESULT_OK && requestCode==100){
+//            selectedImageUri = data?.data
+//            binding.ImageDetail.setImageURI(selectedImageUri)
+//        }
         if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK){
             val uri = FileProvider.getUriForFile(applicationContext,"com.example.android.fileprovider",photoFile)
             selectedImageUri =uri
             binding.ImageDetail.setImageURI(selectedImageUri)
         }
     }
+
     private fun doUploadImage(){
         val parcelFileDescriptor = contentResolver.openFileDescriptor(selectedImageUri!!,"r",null)?:return
         val inputStream = FileInputStream(parcelFileDescriptor.fileDescriptor)
@@ -97,7 +112,7 @@ class CameraActivity : AppCompatActivity(),CameraActivityContract.View,UploadReq
         presenter?.prediction(image,this)
     }
     private fun ContentResolver.getFileName(fileUri:Uri):String{
-        var name = ""
+        var name = "random"
         val returnCursor = this.query(fileUri,null,null,null,null)
         if (returnCursor != null){
             val nameIndex = returnCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
@@ -140,6 +155,20 @@ class CameraActivity : AppCompatActivity(),CameraActivityContract.View,UploadReq
                 }
             }
         }
+    }
+    private fun perfomCrop(){
+            val cropIntent = Intent("com.android.camera.action.CROP")
+            cropIntent.setDataAndType(selectedImageUri,"image/*")
+            cropIntent.putExtra("crop","true")
+            // indicate aspect of desired crop
+            cropIntent.putExtra("aspectX", 2);
+            cropIntent.putExtra("aspectY", 1);
+            // indicate output X and Y
+            cropIntent.putExtra("outputX", 256);
+            cropIntent.putExtra("outputY", 256);
+            // retrieve data on return
+            cropIntent.putExtra("return-data", true);
+            startActivityForResult(cropIntent,CROP_PIC)
     }
 
     override fun showToast(message: String) {

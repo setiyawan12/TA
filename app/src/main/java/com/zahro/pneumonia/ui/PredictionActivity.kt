@@ -28,8 +28,16 @@ class PredictionActivity : AppCompatActivity(),HistoryActivityContract.HistoryAc
             peekHeight=200
             this.state = BottomSheetBehavior.STATE_COLLAPSED
         }
+        mainButton()
         save()
         setValue()
+    }
+    private fun mainButton(){
+        binding.btnBack.setOnClickListener {
+            startActivity(Intent(this,CameraActivity::class.java).apply {
+                finish()
+            })
+        }
     }
 
     private fun save(){
