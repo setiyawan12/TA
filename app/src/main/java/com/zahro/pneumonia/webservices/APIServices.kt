@@ -4,6 +4,7 @@ import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
 import com.zahro.pneumonia.model.History
+import com.zahro.pneumonia.model.News
 import com.zahro.pneumonia.model.Results
 import com.zahro.pneumonia.model.User
 import com.zahro.pneumonia.response.WrappedListResponse
@@ -37,6 +38,8 @@ interface APIServices {
     fun history(
         @Path("id") id: Int
     ):Call<WrappedListResponse<History>>
+    @GET("news")
+    fun news():Call<WrappedListResponse<News>>
     @FormUrlEncoded
     @POST("signup")
     fun register(

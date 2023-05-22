@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:background="@color/light_shadow"
     tools:context=".ui.CameraActivity">
+
     <soup.neumorphism.NeumorphCardView
+        android:id="@+id/neumorphCardView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -14,34 +16,33 @@
         app:layout_constraintTop_toTopOf="parent"
         app:neumorph_backgroundColor="@color/background"
         app:neumorph_shadowColorDark="@color/dark_shadow"
-        app:neumorph_shadowColorLight="@color/light_shadow"
-        >
+        app:neumorph_shadowColorLight="@color/light_shadow">
+
         <soup.neumorphism.NeumorphFloatingActionButton
+            android:id="@+id/btnBack"
+            style="@style/Widget.Neumorph.FloatingActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:neumorph_shadowElevation="@dimen/_1sdp"
-            style="@style/Widget.Neumorph.FloatingActionButton"
+            android:src="@drawable/ef_ic_arrow_back"
             app:neumorph_backgroundColor="@color/dark_shadow"
             app:neumorph_shadowColorDark="@color/dark_shadow"
             app:neumorph_shadowColorLight="@color/light_shadow"
-            android:src="@drawable/ef_ic_arrow_back"
-            />
+            app:neumorph_shadowElevation="@dimen/_1sdp" />
+
         <TextView
             android:id="@+id/tvNama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="prediction"
             android:layout_gravity="center"
             android:fontFamily="@font/poppins_bold"
-            android:textSize="@dimen/_15sdp"
-            />
+            android:text="prediction"
+            android:textSize="@dimen/_15sdp" />
     </soup.neumorphism.NeumorphCardView>
 
     <soup.neumorphism.NeumorphCardView
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_250sdp"
-        app:neumorph_shapeType="basin"
         android:layout_marginTop="@dimen/_90sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,62 +52,32 @@
         app:neumorph_shadowColorLight="@color/light_shadow"
         app:neumorph_shadowElevation="@dimen/_5sdp"
         app:neumorph_shapeAppearance="@style/neumorphismCard"
-        >
+        app:neumorph_shapeType="basin">
+
         <ImageView
             android:id="@+id/ImageDetail"
             android:layout_width="@dimen/_250sdp"
             android:layout_height="@dimen/_250sdp"
-            android:src="@drawable/ic_baseline_camera_24"
             android:layout_gravity="center"
-            />
+            android:src="@drawable/ic_baseline_camera_24" />
     </soup.neumorphism.NeumorphCardView>
+
     <soup.neumorphism.NeumorphButton
         android:id="@+id/BtnChooseImage"
+        style="@style/Widget.Neumorph.Button"
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_50sdp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginStart="30dp"
-        app:neumorph_backgroundColor="@color/background"
-        app:neumorph_shadowColorDark="@color/dark_shadow"
-        app:neumorph_shadowColorLight="@color/light_shadow"
-        app:layout_constraintEnd_toStartOf="@id/BtnCamera"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card"
+        android:fontFamily="@font/poppins_bold"
         android:text="chossed image"
-        android:fontFamily="@font/poppins_bold"
-        style="@style/Widget.Neumorph.Button"
-        />
-    <soup.neumorphism.NeumorphButton
-        android:id="@+id/BtnCamera"
-        android:layout_width="@dimen/_150sdp"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="@dimen/_30sdp"
-        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toStartOf="@id/BtnUpload"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card"
         app:neumorph_backgroundColor="@color/background"
         app:neumorph_shadowColorDark="@color/dark_shadow"
-        app:neumorph_shadowColorLight="@color/light_shadow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/BtnChooseImage"
-        app:layout_constraintTop_toBottomOf="@id/card"
-        android:text="Camera"
-        android:fontFamily="@font/poppins_bold"
-        style="@style/Widget.Neumorph.Button"
-        />
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/loadingPredict"
-        android:layout_width="@dimen/_200sdp"
-        android:layout_height="@dimen/_200sdp"
-        app:lottie_fileName="progres2.json"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_speed="2"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:neumorph_shadowColorLight="@color/light_shadow" />
 
     <soup.neumorphism.NeumorphButton
         android:id="@+id/BtnUpload"
@@ -114,17 +85,58 @@
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_50sdp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="@dimen/_30sdp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Upload"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Diagnosa"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card"
-        app:layout_constraintVertical_bias="0.39"
+        app:layout_constraintStart_toEndOf="@id/BtnChooseImage"
+        app:layout_constraintTop_toBottomOf="@id/card"
         app:neumorph_backgroundColor="@color/background"
         app:neumorph_shadowColorDark="@color/dark_shadow"
         app:neumorph_shadowColorLight="@color/light_shadow" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loadingPredict"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_200sdp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="loading2.json"
+        app:lottie_loop="true"
+        app:lottie_speed="1" />
+
+<!--    <soup.neumorphism.NeumorphButton-->
+<!--        android:id="@+id/BtnUpload"-->
+<!--        style="@style/Widget.Neumorph.Button"-->
+<!--        android:layout_width="@dimen/_150sdp"-->
+<!--        android:layout_height="@dimen/_50sdp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="2dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:fontFamily="@font/poppins_bold"-->
+<!--        android:text="Diagnosa"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/card"-->
+<!--        app:layout_constraintVertical_bias="0.39"-->
+<!--        app:neumorph_backgroundColor="@color/background"-->
+<!--        app:neumorph_shadowColorDark="@color/dark_shadow"-->
+<!--        app:neumorph_shadowColorLight="@color/light_shadow" />-->
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="454dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
