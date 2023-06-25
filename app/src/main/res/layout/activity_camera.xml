@@ -69,7 +69,6 @@
         android:layout_height="@dimen/_50sdp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
         android:fontFamily="@font/poppins_bold"
         android:text="chossed image"
         app:layout_constraintEnd_toStartOf="@id/BtnUpload"
@@ -109,26 +108,6 @@
         app:lottie_fileName="loading2.json"
         app:lottie_loop="true"
         app:lottie_speed="1" />
-
-<!--    <soup.neumorphism.NeumorphButton-->
-<!--        android:id="@+id/BtnUpload"-->
-<!--        style="@style/Widget.Neumorph.Button"-->
-<!--        android:layout_width="@dimen/_150sdp"-->
-<!--        android:layout_height="@dimen/_50sdp"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginTop="2dp"-->
-<!--        android:layout_marginEnd="16dp"-->
-<!--        android:fontFamily="@font/poppins_bold"-->
-<!--        android:text="Diagnosa"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/card"-->
-<!--        app:layout_constraintVertical_bias="0.39"-->
-<!--        app:neumorph_backgroundColor="@color/background"-->
-<!--        app:neumorph_shadowColorDark="@color/dark_shadow"-->
-<!--        app:neumorph_shadowColorLight="@color/light_shadow" />-->
-
     <ProgressBar
         android:id="@+id/progressBar2"
         style="?android:attr/progressBarStyleHorizontal"

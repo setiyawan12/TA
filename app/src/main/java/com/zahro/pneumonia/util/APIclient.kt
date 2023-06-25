@@ -26,7 +26,7 @@ class APIclient {
 }
 class Constants{
     companion object{
-        const val API_ENDPOINT = "http://192.168.2.106:5000/"
+        const val API_ENDPOINT = "http://192.168.50.16:5000/"
         fun getToken(context: Context): String {
             val pref = context.getSharedPreferences("TOKEN", Context.MODE_PRIVATE)
             val token = pref?.getString("TOKEN", "UNDEFINED")

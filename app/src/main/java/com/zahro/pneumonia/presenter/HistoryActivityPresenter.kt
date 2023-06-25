@@ -31,6 +31,7 @@ class HistoryActivityPresenter(v:HistoryActivityContract.HistoryActivityView?):H
                 if (response.isSuccessful){
                     view?.success()
                     view?.hideLoading()
+                    view?.showToast("berhasil")
                 }
                 view?.hideLoading()
             }
@@ -41,7 +42,6 @@ class HistoryActivityPresenter(v:HistoryActivityContract.HistoryActivityView?):H
 
         })
     }
-
     override fun destroy() {
         view = null
     }

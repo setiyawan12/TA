@@ -36,11 +36,9 @@ class LoginActivity : AppCompatActivity(),LoginActivityContract.LoginActivityVie
     override fun showToast(message: String) {
         Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
     }
-
     override fun successLogin() {
         startActivity(Intent(this,MainActivity::class.java).also { finish() })
     }
-
     private fun login(){
         binding.btnLogin.setOnClickListener {
             val email = binding.etEmail.text.toString()

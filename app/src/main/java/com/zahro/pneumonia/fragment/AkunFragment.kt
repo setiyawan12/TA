@@ -51,7 +51,6 @@ class AkunFragment : Fragment() {
             builder.show()
         }
     }
-
     private fun setvalue(){
         val name = Constants.getName(requireActivity())
         binding.tvNama.text = name
