@@ -58,8 +58,8 @@ class PredictionActivity : AppCompatActivity(),HistoryActivityContract.HistoryAc
                     SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
                         .setTitleText("Notice")
                         .setContentText("Apakah prediksi ini sudah sesuai menurut anda")
-                        .setCancelText("No, cancel plx!")
-                        .setConfirmText("Yes, delete it!")
+                        .setCancelText("No")
+                        .setConfirmText("Yes")
                         .showCancelButton(true)
                         .setCancelClickListener { sDialog ->
                             sDialog.cancel()

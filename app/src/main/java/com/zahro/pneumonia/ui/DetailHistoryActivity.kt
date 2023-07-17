@@ -22,6 +22,12 @@ class DetailHistoryActivity : AppCompatActivity() {
         }
         setContentView(binding.root)
         setValue()
+        back()
+    }
+    fun back(){
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
     }
     fun setValue(){
         val data = intent.getStringExtra("extra")
@@ -40,5 +46,9 @@ class DetailHistoryActivity : AppCompatActivity() {
             tvPublish.text = history.created_at
             tvNama.text =history.name
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 }

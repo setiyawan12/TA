@@ -51,6 +51,8 @@
             app:layout_constraintTop_toBottomOf="@id/card1">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutLogin"
+                android:visibility="visible"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp">

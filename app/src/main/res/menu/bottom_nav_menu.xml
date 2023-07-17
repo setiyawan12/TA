@@ -16,7 +16,7 @@
     <item
         android:id="@+id/nvArticle"
         android:title="Article"
-        android:icon="@drawable/ic_baseline_history_24"
+        android:icon="@drawable/ic_baseline_article_24"
         />
     <item
         android:id="@+id/nvAkun"

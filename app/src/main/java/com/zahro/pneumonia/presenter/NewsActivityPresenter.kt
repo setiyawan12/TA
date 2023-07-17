@@ -22,8 +22,6 @@ class NewsActivityPresenter(v:NewsActivityContract.GetNewsView?):NewsActivityCon
                     val body = response.body()
                     if (body != null){
                         view?.attachNewsTorecycle(body.data)
-//                        view?.showToas("ada kok")
-//                        view?.showToas(body.toString())
                     }
                 }
             }

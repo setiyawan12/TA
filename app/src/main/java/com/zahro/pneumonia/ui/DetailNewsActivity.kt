@@ -21,8 +21,13 @@ class DetailNewsActivity : AppCompatActivity() {
         setContentView(binding.root)
         setvalue()
         readmore()
+        back()
     }
-
+    fun back(){
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
+    }
     private fun readmore() {
         binding.btnReadmore.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW)
@@ -44,5 +49,9 @@ class DetailNewsActivity : AppCompatActivity() {
             TitleNews.text = news.title
             tv_description.text = news.description
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 }

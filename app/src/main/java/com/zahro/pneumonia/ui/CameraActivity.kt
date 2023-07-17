@@ -76,7 +76,7 @@ class CameraActivity : AppCompatActivity(),CameraActivityContract.View,UploadReq
             chooseImage()
         }
     }
-//    private fun takePicture(){
+    //    private fun takePicture(){
 //        binding.BtnCamera.setOnClickListener {
 //            dispatchTakePictureIntent()
 ////            CropImage.activity().start(this)

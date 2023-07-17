@@ -7,6 +7,10 @@ data class WrappedResponse<T>(
     @SerializedName("message") var message : String,
     @SerializedName("status") var status : Int
 )
+data class WrappedObject(
+    @SerializedName("message") var message : String,
+    @SerializedName("status") var status : Int
+)
 data class WrappedListResponse<T>(
     @SerializedName("data") var data : List<T>,
     @SerializedName("message") var message : String,

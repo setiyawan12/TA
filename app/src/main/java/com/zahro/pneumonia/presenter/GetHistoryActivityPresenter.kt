@@ -22,7 +22,6 @@ class GetHistoryActivityPresenter(v:HistoryActivityContract.GetHistoryView?):His
                 if (response.isSuccessful){
                     val body = response.body()
                     if (body != null){
-                        view?.showToast("ada kok")
                         view?.attachNewsToRecycler(body.data)
                     }else{
                         view?.showToast("Data is empty")
