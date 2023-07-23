@@ -22,7 +22,7 @@ class VersionActivityPresenter(v:VersionContract.View):VersionContract.Presenter
                 }
             }
             override fun onFailure(call: Call<WrappedObject>, t: Throwable) {
-                view?.showToastVersion("Terjadi Kesalahan Server")
+                view?.showDialogVersion()
             }
 
         })
