@@ -59,7 +59,7 @@
             android:layout_width="@dimen/_250sdp"
             android:layout_height="@dimen/_250sdp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_baseline_camera_24" />
+            android:src="@drawable/icon" />
     </soup.neumorphism.NeumorphCardView>
 
     <soup.neumorphism.NeumorphButton

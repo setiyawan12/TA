@@ -13,6 +13,7 @@
     <color name="colorAccentNeumorphism">#efeeee</color>
 
 <!--    custom collor-->
+    <color name="backgroundtransparent">#00000000</color>
     <color name="primary">#68A0F5</color>
     <color name="background">#E4EBF5</color>
     <color name="primary_text">#0B0D0C</color>

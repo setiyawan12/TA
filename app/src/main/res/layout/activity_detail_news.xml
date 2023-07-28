@@ -98,10 +98,14 @@
         app:neumorph_shapeAppearance="@style/neumorphismCard">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            >
             <TextView
                 android:id="@+id/tv_description"
-                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:textSize="@dimen/_13sdp"
+                android:fontFamily="@font/poppins_medium"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Decrition"

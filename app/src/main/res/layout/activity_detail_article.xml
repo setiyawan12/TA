@@ -7,42 +7,55 @@
     tools:context=".ui.DetailArticleActivity">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/btnReadmore"
+        app:layout_constraintTop_toTopOf="parent"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <soup.neumorphism.NeumorphCardView
-                android:id="@+id/header"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:neumorph_backgroundColor="@color/background"
-                app:neumorph_shadowColorDark="@color/dark_shadow"
-                app:neumorph_shadowColorLight="@color/light_shadow"
                 >
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/btnBack"
-                    android:layout_width="wrap_content"
+                <soup.neumorphism.NeumorphCardView
+                    android:id="@+id/header"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:backgroundTint="@color/white"
-                    android:src="@drawable/ef_ic_arrow_back"
+                    app:neumorph_backgroundColor="@color/background"
+                    app:neumorph_shadowColorDark="@color/dark_shadow"
+                    app:neumorph_shadowColorLight="@color/light_shadow"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="8dp"/>
-                <TextView
-                    android:id="@+id/tv_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Article Detail"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/poppins_bold"
-                    android:textSize="@dimen/_15sdp"
-                    />
-            </soup.neumorphism.NeumorphCardView>
+                    >
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/btnBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:fabSize="mini"
+                        android:backgroundTint="@color/white"
+                        android:src="@drawable/ef_ic_arrow_back"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginStart="8dp"
+                        android:contentDescription="folating" />
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Article Detail"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        app:layout_constraintStart_toEndOf="@id/btnBack"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="@dimen/_15sdp"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="8dp"
+                        />
+                </soup.neumorphism.NeumorphCardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
             <soup.neumorphism.NeumorphCardView
                 android:id="@+id/neumorphCardView"
                 android:layout_width="match_parent"
@@ -165,13 +178,10 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
         style="@style/Widget.Neumorph.Button"
-        app:neumorph_backgroundColor="@color/background"
+        app:neumorph_backgroundColor="@color/backgroundtransparent"
         app:neumorph_shadowColorDark="@color/dark_shadow"
         app:neumorph_shadowColorLight="@color/light_shadow"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:background="@android:color/transparent"
         android:text="Read More"
         android:fontFamily="@font/poppins_bold"
         app:layout_constraintBottom_toBottomOf="parent"

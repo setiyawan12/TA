@@ -18,19 +18,33 @@ class SignUpActivity : AppCompatActivity(),RegisterActivityContract.RegisterActi
         presenter = RegisterActivityPresenter(this)
         setContentView(binding.root)
         register()
+        login()
     }
-    private fun register(){
+    private fun register() {
         binding.btnRegister.setOnClickListener {
             val name = binding.etUsername.text.toString()
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
-            if (name.isNotEmpty()&&email.isNotEmpty()&&password.isNotEmpty()){
+
+            if (name.isNotEmpty() && isValidEmail(email) && password.length >= 6) {
                 presenter.register(name, email, password)
-            }else{
-                showToast("Please Input All form")
+            } else {
+                if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+                    showToast("Please Input All form")
+                } else if (!isValidEmail(email)) {
+                    showToast("Please enter a valid email address")
+                } else {
+                    showToast("Password should be at least 6 characters long")
+                }
             }
         }
     }
+
+    private fun isValidEmail(email: String): Boolean {
+        val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
+        return email.matches(emailPattern.toRegex())
+    }
+
     override fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
@@ -41,6 +55,13 @@ class SignUpActivity : AppCompatActivity(),RegisterActivityContract.RegisterActi
         binding.loadingRegister.apply {
             isIndeterminate=true
             visibility = View.VISIBLE
+        }
+    }
+    private fun login(){
+        binding.btnToLogin.setOnClickListener {
+            startActivity(Intent(this,LoginActivity::class.java).apply {
+                finish()
+            })
         }
     }
     override fun hideLoading() {

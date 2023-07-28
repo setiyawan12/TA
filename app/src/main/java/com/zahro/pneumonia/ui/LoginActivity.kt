@@ -54,17 +54,30 @@ class LoginActivity : AppCompatActivity(),LoginActivityContract.LoginActivityVie
     override fun successLogin() {
         startActivity(Intent(this,MainActivity::class.java).also { finish() })
     }
-    private fun login(){
+    private fun login() {
         binding.btnLogin.setOnClickListener {
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
-            if (email.isNotEmpty() && password.isNotEmpty()){
-                presenter.login(email,password,this)
-            }else{
-                showToast("Please Input All Form")
+
+            if (email.isNotEmpty() && isValidEmail(email) && password.length >= 6) {
+                presenter.login(email, password, this)
+            } else {
+                if (email.isEmpty() || password.isEmpty()) {
+                    showToast("Please Input All Form")
+                } else if (!isValidEmail(email)) {
+                    showToast("Please enter a valid email address")
+                } else {
+                    showToast("Password should be at least 6 characters long")
+                }
             }
         }
     }
+
+    private fun isValidEmail(email: String): Boolean {
+        val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
+        return email.matches(emailPattern.toRegex())
+    }
+
     private fun register(){
         binding.tvCreateAccount.setOnClickListener {
             startActivity(Intent(this,SignUpActivity::class.java))

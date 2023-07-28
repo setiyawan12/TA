@@ -52,7 +52,9 @@ class PredictionActivity : AppCompatActivity(),HistoryActivityContract.HistoryAc
         binding.bottoNavPred.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.nvBack->{
-                    Toast.makeText(this, "home", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this,CameraActivity::class.java).apply {
+                        finish()
+                    })
                 }
                 R.id.nvCreateHistory->{
                     SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
@@ -109,7 +111,6 @@ class PredictionActivity : AppCompatActivity(),HistoryActivityContract.HistoryAc
             }
         }
         dialog.setCancelable(false)
-//        dialog.window?.setLayout(dialogWidth,dialogHeight)
         dialog.show()
     }
 

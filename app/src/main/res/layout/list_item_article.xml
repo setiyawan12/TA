@@ -21,12 +21,12 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_10sdp">
-
+            android:layout_margin="@dimen/_4sdp"
+            >
             <soup.neumorphism.NeumorphCardView
                 android:id="@+id/card_right"
-                android:layout_width="@dimen/_48sdp"
-                android:layout_height="@dimen/_48sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 app:neumorph_backgroundColor="@color/background"
                 app:neumorph_shadowColorDark="@color/dark_shadow"
                 app:neumorph_shadowColorLight="@color/light_shadow"
@@ -37,6 +37,7 @@
                 app:neumorph_shapeType="basin"
                 >
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_arrow"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_right_24"
@@ -50,36 +51,36 @@
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.5"
                 />
+
             <TextView
                 android:id="@+id/tv_title"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_8sdp"
-                android:layout_marginBottom="@dimen/_2sdp"
-                android:text="Nama Title Article"
-                android:textSize="@dimen/_14sdp"
+                android:ellipsize="end"
                 android:fontFamily="@font/poppins_bold"
-                android:textStyle="bold"
+                android:maxLines="1"
+                android:text="Nama Title Article"
                 android:textColor="@color/primary_text"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/guideline"
-                app:layout_constraintStart_toStartOf="parent"
-                />
+                app:layout_constraintStart_toEndOf="@+id/card_right"
+                app:layout_constraintStart_toStartOf="parent" />
+
             <TextView
                 android:id="@+id/tv_author"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_8sdp"
-                android:layout_marginBottom="@dimen/_2sdp"
-                android:text="Author"
-                android:textSize="@dimen/_14sdp"
                 android:fontFamily="@font/poppins_bold"
-                android:textStyle="bold"
+                android:text="Author"
                 android:textColor="@color/secondary_text"
-                app:layout_constraintTop_toBottomOf="@+id/guideline"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/card_right"
                 app:layout_constraintStart_toStartOf="parent"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/guideline" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </soup.neumorphism.NeumorphCardView>
 

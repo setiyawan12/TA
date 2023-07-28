@@ -1,16 +1,12 @@
 package com.zahro.pneumonia.ui
 
 import android.app.Activity
-import android.content.ActivityNotFoundException
 import android.content.ContentResolver
 import android.content.ContentValues.TAG
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.nfc.Tag
 import android.os.Bundle
 import android.os.Environment
-import android.os.Handler
 import android.provider.MediaStore
 import android.provider.OpenableColumns
 import android.util.Log
@@ -18,20 +14,11 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
-import androidx.core.net.toUri
 import cn.pedant.SweetAlert.SweetAlertDialog
-import com.esafirm.imagepicker.features.ImagePickerConfig
-import com.esafirm.imagepicker.features.ImagePickerMode
-import com.esafirm.imagepicker.features.registerImagePicker
-import com.soundcloud.android.crop.Crop
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import com.zahro.pneumonia.MainActivity
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
-import okhttp3.RequestBody.Companion.asRequestBody
-
 import com.zahro.pneumonia.contract.CameraActivityContract
 import com.zahro.pneumonia.databinding.ActivityCameraBinding
 import com.zahro.pneumonia.presenter.CameraActivityPresenter
@@ -43,7 +30,6 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.random.Random.Default.nextInt
 
 class CameraActivity : AppCompatActivity(),CameraActivityContract.View,UploadRequestBody.UploadCallback {
     private var presenter:CameraActivityContract.Presenter?=null
@@ -166,9 +152,23 @@ class CameraActivity : AppCompatActivity(),CameraActivityContract.View,UploadReq
         }
     }
     private fun launchImageCrop(uri: Uri){
-        CropImage.activity(uri)
-//            .setGuidelines(CropImageView.Guidelines.ON)
-            .start(this)
+        SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+            .setTitleText("Notice")
+            .setContentText("Apakah Anda Butuh Di Crop Pada Image")
+            .setCancelText("No")
+            .setConfirmText("Crop")
+            .showCancelButton(true)
+            .setCancelClickListener { sDialog ->
+                sDialog.cancel()
+                selectedImageUri = uri
+                binding.ImageDetail.setImageURI(selectedImageUri)
+            }
+            .setConfirmClickListener {sDialog ->
+                sDialog.cancel()
+                CropImage.activity(uri)
+                .start(this)
+            }
+            .show()
     }
     private fun doUploadImage(){
         val parcelFileDescriptor = contentResolver.openFileDescriptor(selectedImageUri!!,"r",null)?:return
