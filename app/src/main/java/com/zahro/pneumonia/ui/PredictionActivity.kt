@@ -104,10 +104,16 @@ class PredictionActivity : AppCompatActivity(),HistoryActivityContract.HistoryAc
             val url = intent.getStringExtra("url")
             val presentase = intent.getStringExtra("presentase")
             val userid = Constants.getId(this)
-            if (nama.isNotEmpty()&&alamat.isNotEmpty()&&umur.isNotEmpty()&&nomor.isNotEmpty()){
-                presenter?.addHistory(nama,result.toString(),alamat,umur,nomor,url.toString(),presentase.toString(),userid)
+            if (nama.isNotEmpty()&& !nama.any{it.isDigit()}&&alamat.isNotEmpty()&&umur.isNotEmpty()&&nomor.isNotEmpty()){
+                if (nomor.length in 11..13){
+                    presenter?.addHistory(nama, result.toString(), alamat, umur, nomor, url.toString(), presentase.toString(), userid)
+                    dialog.setCancelable(false)
+                    dialog.show()
+                }else{
+                    Toast.makeText(this, "Nomor harus memiliki panjang 11 hingga 13 karakter", Toast.LENGTH_SHORT).show()
+                }
             }else{
-                Toast.makeText(this, "isi semua data", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Nama tidak boleh mengandung angka atau isi semua data", Toast.LENGTH_SHORT).show()
             }
         }
         dialog.setCancelable(false)
