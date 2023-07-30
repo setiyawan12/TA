@@ -47,9 +47,6 @@ class ExampleActivity : AppCompatActivity() {
     }
     private fun btnUploadListener(){
         uploadImage.setOnClickListener {
-//            SweetAlertDialog(this,SweetAlertDialog.ERROR_TYPE)
-//                .setTitleText("dadadada")
-//                .show()
             if (userpic == null){
                 SweetAlertDialog(this,SweetAlertDialog.ERROR_TYPE)
                     .setTitleText("Please insert image")

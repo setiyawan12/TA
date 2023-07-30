@@ -32,12 +32,7 @@ class PredictionActivity : AppCompatActivity(),HistoryActivityContract.HistoryAc
         setContentView(binding.root)
         supportActionBar?.hide()
         presenter = HistoryActivityPresenter(this)
-//        BottomSheetBehavior.from(binding.sheet).apply {
-//            peekHeight=200
-//            this.state = BottomSheetBehavior.STATE_COLLAPSED
-//        }
         mainButton()
-//        save()
         setValue()
         buttonNav()
     }
@@ -120,24 +115,6 @@ class PredictionActivity : AppCompatActivity(),HistoryActivityContract.HistoryAc
         dialog.show()
     }
 
-//    private fun save(){
-//        binding.btnHistory.setOnClickListener {
-//            val nama = binding.etNamaPasien.text.toString()
-//            val alamat = binding.etAlamatPasien.text.toString()
-//            val umur = binding.etUmurPasien.text.toString()
-//            val no = binding.etNoHpPasien.text.toString()
-//            val result = intent.getStringExtra("result")
-//            val url = intent.getStringExtra("url")
-//            val presentase = intent.getStringExtra("presentase")
-//            val user_id = Constants.getId(this)
-//            if (nama.isNotEmpty() && alamat.isNotEmpty() && umur.isNotEmpty() && no.isNotEmpty()){
-//                presenter?.addHistory(nama,result.toString(),alamat,umur,no,url.toString(),presentase.toString(),user_id)
-//            }else{
-//                Toast.makeText(this, "isi semua form", Toast.LENGTH_SHORT).show()
-//            }
-//        }
-//    }
-
     override fun showToast(message: String) {
         Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
     }
@@ -145,24 +122,10 @@ class PredictionActivity : AppCompatActivity(),HistoryActivityContract.HistoryAc
         startActivity(Intent(this, MainActivity::class.java).also { finish() })
     }
     override fun showLoading() {
-//        binding.progressBar.apply {
-//            isIndeterminate=true
-//            visibility = View.VISIBLE
-//        }
-//        binding.apply {
-//            btnHistory.isEnabled=false
-//        }
+
     }
 
     override fun hideLoading() {
-//        binding.progressBar.apply {
-//            isIndeterminate=false
-//            progress =0
-//            visibility = View.GONE
-//        }
-//        binding.apply {
-//            btnHistory.isEnabled=true
-//        }
     }
     override fun onDestroy() {
         super.onDestroy()

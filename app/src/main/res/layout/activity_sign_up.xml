@@ -8,7 +8,7 @@
     tools:context=".ui.SignUpActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         >
         <soup.neumorphism.NeumorphCardView
             android:id="@+id/card1"
@@ -69,7 +69,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Register"
+                        android:text="@string/tv_register"
                         android:layout_margin="@dimen/_5sdp"
                         android:fontFamily="@font/poppins_bold"
                         android:textColor="@color/black"
@@ -101,8 +101,11 @@
                         android:drawableStart="@drawable/ic_baseline_person_24"
                         android:drawablePadding="15dp"
                         android:ems="10"
+                        android:minWidth="48dp"
+                        android:maxHeight="48dp"
+                        android:textColor="@color/black"
                         android:background="@color/float_transparent"
-                        android:hint="Username"
+                        android:hint="@string/hint_username"
                         android:inputType="text"
                         />
                 </soup.neumorphism.NeumorphCardView>
@@ -136,13 +139,16 @@
                         android:layout_margin="@dimen/_10sdp"
                         android:id="@+id/etEmail"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:autofillHints="emailAddress"
                         android:drawableStart="@drawable/ic_baseline_email_24"
                         android:drawablePadding="15dp"
                         android:ems="10"
+                        android:textColor="@color/black"
                         android:background="@color/float_transparent"
-                        android:hint="Email"
+                        android:hint="@string/hint_email"
+                        android:minWidth="48dp"
+                        android:maxHeight="48dp"
                         android:inputType="textEmailAddress"
                         />
                 </soup.neumorphism.NeumorphCardView>
@@ -172,8 +178,11 @@
                         android:drawableStart="@drawable/ic_baseline_lock_24"
                         android:drawablePadding="15dp"
                         android:ems="10"
+                        android:textColor="@color/black"
+                        android:minWidth="48dp"
+                        android:maxHeight="48dp"
                         android:background="@color/float_transparent"
-                        android:hint="Password"
+                        android:hint="@string/hintPassword"
                         android:inputType="textPassword"
                         />
                 </soup.neumorphism.NeumorphCardView>
@@ -186,24 +195,34 @@
                     app:neumorph_shadowColorDark="@color/dark_shadow"
                     app:neumorph_shadowColorLight="@color/light_shadow"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
-                    android:text="Register"
+                    android:textColor="@color/black"
+                    android:text="@string/btn_register"
+                    android:contentDescription="@string/des_btnRegister"
                     android:fontFamily="@font/poppins_bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cardPassword"
                     />
-                <TextView
+                <soup.neumorphism.NeumorphButton
                     android:id="@+id/btnToLogin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_medium"
-                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    style="@style/Widget.Neumorph.Button"
+                    app:neumorph_backgroundColor="@color/background"
+                    app:neumorph_shadowColorDark="@color/dark_shadow"
+                    app:neumorph_shadowColorLight="@color/light_shadow"
+                    android:fontFamily="@font/poppins_bold"
+                    app:layout_constraintTop_toBottomOf="@id/btnRegister"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:text="Already have a account?. Login"
+                    android:text="@string/btn_textAlredy"
+                    android:textColor="@color/black"
+                    android:contentDescription="@string/des_alreadyaccount"
+                    android:textAllCaps="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     />

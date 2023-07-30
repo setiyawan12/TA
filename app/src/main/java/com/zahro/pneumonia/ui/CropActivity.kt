@@ -84,7 +84,6 @@ class CropActivity : AppCompatActivity() {
             if (resultCode == RESULT_OK) {
                 val resultUri: Uri = result.getUri()
                 userpic?.setImageURI(resultUri)
-//                Picasso.with(this).load(resultUri).into(userpic)
             }
         }
     }

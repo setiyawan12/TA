@@ -9,7 +9,7 @@
     tools:context=".ui.LoginActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         >
         <soup.neumorphism.NeumorphCardView
             android:id="@+id/card1"
@@ -72,7 +72,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Login"
+                        android:text="@string/tv_login"
                         android:layout_margin="@dimen/_5sdp"
                         android:fontFamily="@font/poppins_bold"
                         android:textColor="@color/black"
@@ -105,8 +105,11 @@
                         android:drawableStart="@drawable/ic_baseline_email_24"
                         android:drawablePadding="15dp"
                         android:ems="10"
+                        android:textColor="@color/black"
                         android:background="@color/float_transparent"
-                        android:hint="Email"
+                        android:hint="@string/hint_email"
+                        android:minWidth="48dp"
+                        android:maxHeight="48dp"
                         android:inputType="textEmailAddress"
                         />
                 </soup.neumorphism.NeumorphCardView>
@@ -136,22 +139,31 @@
                         android:drawableStart="@drawable/ic_baseline_lock_24"
                         android:drawablePadding="15dp"
                         android:ems="10"
+                        android:textColor="@color/black"
                         android:background="@color/float_transparent"
-                        android:hint="Password"
+                        android:hint="@string/hintPassword"
+                        android:minWidth="48dp"
+                        android:maxHeight="48dp"
                         android:inputType="textPassword"
                         />
                 </soup.neumorphism.NeumorphCardView>
-                <TextView
+                <soup.neumorphism.NeumorphButton
                     android:id="@+id/tvCreateAccount"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="createAccount?"
+                    android:layout_height="48dp"
+                    style="@style/Widget.Neumorph.Button"
+                    app:neumorph_backgroundColor="@color/background"
+                    app:neumorph_shadowColorDark="@color/dark_shadow"
+                    app:neumorph_shadowColorLight="@color/light_shadow"
+                    android:text="@string/tv_createAccount"
+                    android:minWidth="48dp"
+                    android:maxHeight="48dp"
                     android:fontFamily="@font/poppins_bold"
                     android:textColor="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cardPassword" />
+                    app:layout_constraintTop_toBottomOf="@id/cardPassword"
+                    android:contentDescription="@string/des_createAccount"
+                    />
                 <soup.neumorphism.NeumorphButton
                     android:id="@+id/btnLogin"
                     android:layout_width="match_parent"
@@ -164,8 +176,12 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
-                    android:text="Login"
+                    android:minWidth="48dp"
+                    android:maxHeight="48dp"
+                    android:textColor="@color/black"
+                    android:text="@string/bt_login"
                     android:fontFamily="@font/poppins_bold"
+                    android:contentDescription="@string/des_buttonLogin"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

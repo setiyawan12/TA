@@ -4,15 +4,10 @@ import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.WindowManager
+import android.view.*
 import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
-import androidx.cardview.widget.CardView
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.zahro.pneumonia.BuildConfig
 import com.zahro.pneumonia.MainActivity
 import com.zahro.pneumonia.R
@@ -23,12 +18,14 @@ import com.zahro.pneumonia.presenter.LoginActivityPresenter
 import com.zahro.pneumonia.presenter.VersionActivityPresenter
 import com.zahro.pneumonia.util.Constants
 
+
 class LoginActivity : AppCompatActivity(),LoginActivityContract.LoginActivityView,VersionContract.View {
     private lateinit var presenter:LoginActivityContract.LoginActivityPresenter
     private  lateinit var presenterVersion:VersionContract.Presenter
     private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen()
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()

@@ -48,7 +48,6 @@ class CameraActivity : AppCompatActivity(),CameraActivityContract.View,UploadReq
         btnChooseListener()
         btnUploadListener()
         back()
-//        takePicture()
     }
     private fun back(){
         binding.btnBack.setOnClickListener {
@@ -62,12 +61,6 @@ class CameraActivity : AppCompatActivity(),CameraActivityContract.View,UploadReq
             chooseImage()
         }
     }
-    //    private fun takePicture(){
-//        binding.BtnCamera.setOnClickListener {
-//            dispatchTakePictureIntent()
-////            CropImage.activity().start(this)
-//        }
-//    }
     private fun btnUploadListener(){
         binding.BtnUpload.setOnClickListener {
             if (selectedImageUri == null){
@@ -80,12 +73,6 @@ class CameraActivity : AppCompatActivity(),CameraActivityContract.View,UploadReq
         }
     }
     private fun chooseImage() {
-//        val intent = Intent(Intent.ACTION_PICK)
-//        intent.type = "image/*"
-//        CropImage.activity().start(this)
-//        startActivityForResult(intent,100)
-//        deleteImageCache(this,selectedImageUri.toString())
-//        selectedImageUri = null
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         intent.type = "image/*"
         val mimeTypes = arrayOf("image/jpeg", "image/png", "image/jpg")
@@ -96,40 +83,6 @@ class CameraActivity : AppCompatActivity(),CameraActivityContract.View,UploadReq
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-//        if(resultCode == Activity.RESULT_OK && requestCode ==GALLERY_REQUEST_CODE ){
-//            val imageUri = data?.data
-////            val cekUri =File(this.getExternalCacheDir(), "cropped_image.jpg")
-////            Toast.makeText(this, cekUri.toString(), Toast.LENGTH_SHORT).show()
-////            deleteImageCache(this,cekUri.toUri().toString()
-////            Toast.makeText(this, randomString+".jpg", Toast.LENGTH_SHORT).show()
-//            Crop.of(imageUri, Uri.fromFile(File(this.getExternalCacheDir(), "image.jpg")))
-//                .start(this)
-//            val file = File(this.getExternalCacheDir(), "cropped_image.jpg")
-//            selectedImageUri = file.toUri()
-//            Toast.makeText(this, selectedImageUri.toString(), Toast.LENGTH_SHORT).show()
-//            binding.ImageDetail.setImageURI(selectedImageUri)
-////            selectedImageUri=imageUri
-////            binding.ImageDetail.setImageURI(imageUri)
-//        }
-//        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
-//            val result :CropImage.ActivityResult = CropImage.getActivityResult(data)
-////            Toast.makeText(this, result.toString(), Toast.LENGTH_SHORT).show()
-//            if (resultCode == RESULT_OK){
-//                selectedImageUri = result.uri
-//                Toast.makeText(this, selectedImageUri.toString(), Toast.LENGTH_SHORT).show()
-//                binding.ImageDetail.setImageURI(selectedImageUri)
-//            }
-//        }
-//        if (resultCode == Activity.RESULT_OK && requestCode==100){
-//            selectedImageUri = data?.data
-//            Toast.makeText(this, selectedImageUri.toString(), Toast.LENGTH_SHORT).show()
-//            binding.ImageDetail.setImageURI(selectedImageUri)
-//        }
-//        if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK){
-//            val uri = FileProvider.getUriForFile(applicationContext,"com.example.android.fileprovider",photoFile)
-//            selectedImageUri =uri
-//            binding.ImageDetail.setImageURI(selectedImageUri)
-//        }
         when(requestCode){
             GALLERY_REQUEST_CODE->{
                 if (resultCode == Activity.RESULT_OK){
@@ -141,8 +94,6 @@ class CameraActivity : AppCompatActivity(),CameraActivityContract.View,UploadReq
                 }
             }
             CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE ->{
-//                val  result = CropImage.getActivityResult(data)
-//                val result :CropImage.ActivityResult = CropImage.getActivityResult(data)
                 val result = CropImage.getActivityResult(data)
                 if (resultCode == Activity.RESULT_OK){
                     selectedImageUri = result.uri
